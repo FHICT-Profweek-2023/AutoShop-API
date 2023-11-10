@@ -1,6 +1,6 @@
-﻿using AutoShopAPI.Models;
+﻿using AutoShop_API.Models;
 
-namespace AutoShopAPI.Data;
+namespace AutoShop_API.Data;
 
 public class DBInitializer
 {

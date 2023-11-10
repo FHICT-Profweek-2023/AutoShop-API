@@ -1,8 +1,8 @@
-﻿using AutoShopAPI.Data;
+﻿using AutoShop_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
-namespace AutoShopAPI;
+namespace AutoShop_API;
 
 public class Startup
 {

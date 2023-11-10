@@ -1,9 +1,9 @@
-using AutoShopAPI.Data;
-using AutoShopAPI.Models;
+using AutoShop_API.Data;
+using AutoShop_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace AutoShopAPI.Controllers
+namespace AutoShop_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

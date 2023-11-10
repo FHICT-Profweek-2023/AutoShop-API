@@ -1,4 +1,4 @@
-﻿using AutoShopAPI.Data;
+﻿using AutoShop_API.Data;
 
 /*var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +26,7 @@ app.MapControllers();
 
 app.Run();*/
 
-namespace AutoShopAPI
+namespace AutoShop_API
 {
     public class Program
     {

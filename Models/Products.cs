@@ -1,4 +1,4 @@
-﻿namespace AutoShopAPI.Models
+﻿namespace AutoShop_API.Models
 {
     public class Products
 	{

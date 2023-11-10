@@ -1,7 +1,7 @@
-﻿using AutoShopAPI.Models;
+﻿using AutoShop_API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AutoShopAPI.Data;
+namespace AutoShop_API.Data;
 
 public class ProductsContext : DbContext
 {
