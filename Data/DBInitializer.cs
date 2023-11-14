@@ -4,26 +4,17 @@ namespace AutoShop_API.Data;
 
 public class DBInitializer
 {
-    public static void Initialize(ProductContext context)
+    public static void Initialize(ProductContext productContext, ControlContext controlContext)
     {
-        context.Database.EnsureCreated();
+        productContext.Database.EnsureCreated();
+        controlContext.Database.EnsureCreated();
 
-        if (context.Products.Any())
+        if (productContext.Products.Any() || controlContext.Controls.Any())
         {
             return;
         }
 
-        var temperature = new Product[]
-        {
-            new Product { Id = 0, Name = "Kaas", Description = "Zuivel", Price = 5 },
-            new Product { Id = 1, Name = "Worst", Description = "Van een koe", Price = 10 }
-        };
-
-        foreach (var t in temperature)
-        {
-            context.Products.Add(t);
-        }
-
-        context.SaveChanges();
+        productContext.SaveChanges();
+        controlContext.SaveChanges();
     }
 }

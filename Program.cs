@@ -1,4 +1,5 @@
 ﻿using AutoShop_API.Data;
+using Microsoft.EntityFrameworkCore;
 
 /*var builder = WebApplication.CreateBuilder(args);
 
@@ -40,8 +41,9 @@ namespace AutoShop_API
 
                 try
                 {
-                    var context = services.GetRequiredService<ProductContext>();
-                    DBInitializer.Initialize(context);
+                    var productContext = services.GetRequiredService<ProductContext>();
+                    var controlContext = services.GetRequiredService<ControlContext>();
+                    DBInitializer.Initialize(productContext, controlContext);
                 }
                 catch (Exception ex)
                 {

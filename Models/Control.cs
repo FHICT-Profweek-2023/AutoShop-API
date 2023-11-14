@@ -3,7 +3,6 @@
     public class Control
     {
         public int Id { get; set; }
-        public bool Start { get; set; }
-
+        public bool Halt { get; set; }
     }
 }
