@@ -30,6 +30,11 @@ public class Startup
         {
             options.UseMySQL(Configuration.GetConnectionString("DBConnection") ?? throw new InvalidOperationException());
         });
+
+        services.AddDbContext<CustomerContext>(options =>
+        {
+            options.UseMySQL(Configuration.GetConnectionString("DBConnection") ?? throw new InvalidOperationException());
+        });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
