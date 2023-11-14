@@ -4,7 +4,7 @@ namespace AutoShop_API.Data;
 
 public class DBInitializer
 {
-    public static void Initialize(ProductsContext context)
+    public static void Initialize(ProductContext context)
     {
         context.Database.EnsureCreated();
 
@@ -13,10 +13,10 @@ public class DBInitializer
             return;
         }
 
-        var temperature = new Products[]
+        var temperature = new Product[]
         {
-            new Products { Id = 0, Name = "Kaas", Description = "Zuivel", Price = 5 },
-            new Products { Id = 1, Name = "Worst", Description = "Van een koe", Price = 10 }
+            new Product { Id = 0, Name = "Kaas", Description = "Zuivel", Price = 5 },
+            new Product { Id = 1, Name = "Worst", Description = "Van een koe", Price = 10 }
         };
 
         foreach (var t in temperature)

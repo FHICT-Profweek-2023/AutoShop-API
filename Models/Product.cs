@@ -1,6 +1,6 @@
 ﻿namespace AutoShop_API.Models
 {
-    public class Products
+    public class Product
 	{
         public int Id { get; set; }
 

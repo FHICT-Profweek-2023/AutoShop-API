@@ -9,23 +9,23 @@ namespace AutoShop_API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly ProductsContext _context;
+        private readonly ProductContext _context;
 
-        public ProductsController(ProductsContext context)
+        public ProductsController(ProductContext context)
         {
             _context = context;
         }
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Products.ToListAsync();
         }
 
         // GET: api/Products/5
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Products>> GetProducts(int id)
+        public async Task<ActionResult<Product>> GetProducts(int id)
         {
             var products = await _context.Products.FindAsync(id);
 
