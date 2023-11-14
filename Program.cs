@@ -40,7 +40,7 @@ namespace AutoShop_API
 
                 try
                 {
-                    var context = services.GetRequiredService<ProductsContext>();
+                    var context = services.GetRequiredService<ProductContext>();
                     DBInitializer.Initialize(context);
                 }
                 catch (Exception ex)

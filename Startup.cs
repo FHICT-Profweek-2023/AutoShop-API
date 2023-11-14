@@ -21,7 +21,12 @@ public class Startup
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "AutoShop", Version = "v1" });
         });
 
-        services.AddDbContext<ProductsContext>(options =>
+        services.AddDbContext<ProductContext>(options =>
+        {
+            options.UseMySQL(Configuration.GetConnectionString("DBConnection") ?? throw new InvalidOperationException());
+        });
+
+        services.AddDbContext<ControlContext>(options =>
         {
             options.UseMySQL(Configuration.GetConnectionString("DBConnection") ?? throw new InvalidOperationException());
         });
