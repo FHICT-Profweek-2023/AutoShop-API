@@ -43,7 +43,7 @@ The following APIs are available:
   
         bool halt,
   
-        int next_product,
+        int? next_product, // Nullable
   
         int current_position
   
