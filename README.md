@@ -20,7 +20,13 @@ The following APIs are available:
 
       {
 
-        int id,  string first_name,  string last_name,  string email,
+        int id,
+
+        string first_name,
+
+        string last_name,
+
+        string email,
 
         string gender,
 
