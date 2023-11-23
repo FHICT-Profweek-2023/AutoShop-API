@@ -27,19 +27,19 @@ namespace AutoShop_API.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Customer>> GetCustomers(int id)
         {
-            var Customers = await _context.Customers.FindAsync(id);
+            var customers = await _context.Customers.FindAsync(id);
 
-            if (Customers == null)
+            if (customers == null)
             {
                 return NotFound();
             }
 
-            return Customers;
+            return customers;
         }
 
         // PUT: api/Customers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> PutCustomers(int id, Customer Customers)
         {
             if (id != Customers.Id)
@@ -59,10 +59,8 @@ namespace AutoShop_API.Controllers
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                throw;
             }
 
             return NoContent();
@@ -71,33 +69,25 @@ namespace AutoShop_API.Controllers
         // POST: api/Customers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomers(Customer Customers)
+        public async Task<ActionResult<Customer>> PostCustomers(Customer customers)
         {
-            if (_context.Customers == null)
-            {
-                return Problem("Entity set 'CustomersContext.Customers' is null.");
-            }
-            _context.Customers.Add(Customers);
+            _context.Customers.Add(customers);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetCustomers), new { id = Customers.Id }, Customers);
+            return CreatedAtAction(nameof(GetCustomers), new { id = customers.Id }, customers);
         }
 
         // DELETE: api/Customers/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCustomers(int id)
         {
-            if (_context.Customers == null)
-            {
-                return NotFound();
-            }
-            var Customers = await _context.Customers.FindAsync(id);
-            if (Customers == null)
+            var customers = await _context.Customers.FindAsync(id);
+            if (customers == null)
             {
                 return NotFound();
             }
 
-            _context.Customers.Remove(Customers);
+            _context.Customers.Remove(customers);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -105,7 +95,7 @@ namespace AutoShop_API.Controllers
 
         private bool CustomersExists(int id)
         {
-            return (_context.Customers?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _context.Customers.Any(e => e.Id == id);
         }
     }
 }

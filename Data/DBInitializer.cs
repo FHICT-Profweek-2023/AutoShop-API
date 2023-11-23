@@ -1,6 +1,6 @@
 ﻿namespace AutoShop_API.Data;
 
-public class DBInitializer
+public abstract class DbInitializer
 {
     public static void Initialize(ProductContext productContext, ControlContext controlContext, CustomerContext customerContext)
     {

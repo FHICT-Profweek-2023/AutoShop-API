@@ -27,19 +27,19 @@ namespace AutoShop_API.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Control>> GetControls(int id)
         {
-            var Controls = await _context.Controls.FindAsync(id);
+            var controls = await _context.Controls.FindAsync(id);
 
-            if (Controls == null)
+            if (controls == null)
             {
                 return NotFound();
             }
 
-            return Controls;
+            return controls;
         }
 
         // PUT: api/Controls/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> PutControls(int id, Control Controls)
         {
             if (id != Controls.Id)
@@ -59,10 +59,8 @@ namespace AutoShop_API.Controllers
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                throw;
             }
 
             return NoContent();
@@ -71,16 +69,12 @@ namespace AutoShop_API.Controllers
         // POST: api/Controls
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Control>> PostControls(Control Controls)
+        public async Task<ActionResult<Control>> PostControls(Control controls)
         {
-          if (_context.Controls == null)
-          {
-              return Problem("Entity set 'ControlsContext.Controls' is null.");
-          }
-            _context.Controls.Add(Controls);
+            _context.Controls.Add(controls);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetControls), new { id = Controls.Id }, Controls);
+            return CreatedAtAction(nameof(GetControls), new { id = controls.Id }, controls);
         }
 
         // DELETE: api/Controls/5
@@ -105,7 +99,7 @@ namespace AutoShop_API.Controllers
 
         private bool ControlsExists(int id)
         {
-            return (_context.Controls?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _context.Controls.Any(e => e.Id == id);
         }
     }
 }
