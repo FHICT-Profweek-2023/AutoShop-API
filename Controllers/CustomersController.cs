@@ -38,16 +38,16 @@ namespace AutoShop_API.Controllers
         }
 
         // PUT: api/Customers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> PutCustomers(int id, Customer Customers)
+        public async Task<IActionResult> PutCustomers(int id, Customer customers)
         {
-            if (id != Customers.Id)
+            if (id != customers.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(Customers).State = EntityState.Modified;
+            _context.Entry(customers).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace AutoShop_API.Controllers
         }
 
         // POST: api/Customers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomers(Customer customers)
         {

@@ -38,16 +38,16 @@ namespace AutoShop_API.Controllers
         }
 
         // PUT: api/Controls/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> PutControls(int id, Control Controls)
+        public async Task<IActionResult> PutControls(int id, Control controls)
         {
-            if (id != Controls.Id)
+            if (id != controls.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(Controls).State = EntityState.Modified;
+            _context.Entry(controls).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace AutoShop_API.Controllers
         }
 
         // POST: api/Controls
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Control>> PostControls(Control controls)
         {
