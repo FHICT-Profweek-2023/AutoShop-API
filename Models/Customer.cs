@@ -4,16 +4,16 @@
     {
         public int Id { get; set; }
         
-        public string? FirstName { get; set; }
+        public string? first_Name { get; set; }
 
-        public string? LastName { get; set;}
+        public string? last_Name { get; set;}
 
-        public string? Email { get; set; }
+        public string? email { get; set; }
 
-        public string? Gender { get; set; }
+        public string? gender { get; set; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime birthday { get; set; }
 
-        public DateTime RegisterDate { get; set; }
+        public DateTime register_Date { get; set; }
     }
 }
