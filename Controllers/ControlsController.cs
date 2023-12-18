@@ -40,14 +40,14 @@ namespace AutoShop_API.Controllers
         // PUT: api/Controls/5
         // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> PutControls(int id, Control controls)
+        public async Task<IActionResult> PutControls(int id, Control credentialses)
         {
-            if (id != controls.Id)
+            if (id != credentialses.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(controls).State = EntityState.Modified;
+            _context.Entry(credentialses).State = EntityState.Modified;
 
             try
             {
@@ -69,12 +69,12 @@ namespace AutoShop_API.Controllers
         // POST: api/Controls
         // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Control>> PostControls(Control controls)
+        public async Task<ActionResult<Control>> PostControls(Control credentialses)
         {
-            _context.Controls.Add(controls);
+            _context.Controls.Add(credentialses);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetControls), new { id = controls.Id }, controls);
+            return CreatedAtAction(nameof(GetControls), new { id = credentialses.Id }, credentialses);
         }
 
         // DELETE: api/Controls/5

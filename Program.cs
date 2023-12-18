@@ -17,7 +17,8 @@ namespace AutoShop_API
                     var productContext = services.GetRequiredService<ProductContext>();
                     var controlContext = services.GetRequiredService<ControlContext>();
                     var customerContext = services.GetRequiredService<CustomerContext>();
-                    DbInitializer.Initialize(productContext, controlContext, customerContext);
+                    var credentialContext = services.GetRequiredService<CredentialContext>();
+                    DbInitializer.Initialize(productContext, controlContext, customerContext, credentialContext);
                 }
                 catch (Exception ex)
                 {

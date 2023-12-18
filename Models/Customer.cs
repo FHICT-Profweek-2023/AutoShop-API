@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
         
-        public string? First_Name { get; set; }
+        public string? FirstName { get; set; }
 
-        public string? Last_Name { get; set;}
+        public string? LastName { get; set;}
 
         public string? Email { get; set; }
 
@@ -14,6 +14,6 @@
 
         public DateTime Birthday { get; set; }
 
-        public DateTime Register_Date { get; set; }
+        public DateTime RegisterDate { get; set; }
     }
 }

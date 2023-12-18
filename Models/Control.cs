@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
 
-        public int? next_product { get; set; }
+        public int? NextProduct { get; set; }
 
-        public int current_position { get; set; }
+        public int CurrentPosition { get; set; }
 
         public bool Halt { get; set; }
     }
