@@ -15,5 +15,9 @@
         public DateTime birthday { get; set; }
 
         public DateTime register_Date { get; set; }
+        
+        public string adress { get; set; }
+        
+        public string postalcode { get; set; }
     }
 }
