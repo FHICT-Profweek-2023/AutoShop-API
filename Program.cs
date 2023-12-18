@@ -1,31 +1,4 @@
 ﻿using AutoShop_API.Data;
-using Microsoft.EntityFrameworkCore;
-
-/*var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddDbContext<ProductsContext>(opt =>
-    opt.UseInMemoryDatabase("products"));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();*/
 
 namespace AutoShop_API
 {
@@ -44,12 +17,13 @@ namespace AutoShop_API
                     var productContext = services.GetRequiredService<ProductContext>();
                     var controlContext = services.GetRequiredService<ControlContext>();
                     var customerContext = services.GetRequiredService<CustomerContext>();
-                    DBInitializer.Initialize(productContext, controlContext, customerContext);
+                    var credentialContext = services.GetRequiredService<CredentialContext>();
+                    DbInitializer.Initialize(productContext, controlContext, customerContext, credentialContext);
                 }
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occured seeding the db.");
+                    logger.LogError(ex, "An error occurred seeding the db.");
                 }
             }
 

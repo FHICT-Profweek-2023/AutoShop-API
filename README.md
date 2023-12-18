@@ -2,7 +2,7 @@
 
 The following APIs are available:
 
-* Products
+* Products, at: ``http://your-ip/api/products``, or: ``http://your-ip/api/products/{id}``
 
       {
 
@@ -16,7 +16,7 @@ The following APIs are available:
 
       }
 
-* Customers
+* Customers, at: ``http://your-ip/api/customers``, or: ``http://your-ip/api/customers/{id}``
 
       {
 
@@ -36,7 +36,7 @@ The following APIs are available:
 
       }
 
-* Controls
+* Controls, at: ``http://your-ip/api/controls/{id}``
 
       {
         int id,

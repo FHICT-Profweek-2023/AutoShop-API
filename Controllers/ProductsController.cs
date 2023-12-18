@@ -38,16 +38,16 @@ namespace AutoShop_API.Controllers
         }
 
         // PUT: api/Products/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        /*[HttpPut("{id}")]
-        public async Task<IActionResult> PutProducts(int id, Products products)
+        // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /*[HttpPut("{id:int}")]
+        public async Task<IActionResult> PutProducts(int id, Product product)
         {
-            if (id != products.Id)
+            if (id != product.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(products).State = EntityState.Modified;
+            _context.Entry(product).State = EntityState.Modified;
 
             try
             {
@@ -59,45 +59,35 @@ namespace AutoShop_API.Controllers
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                throw;
             }
 
             return NoContent();
         }*/
 
         // POST: api/Products
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         /*[HttpPost]
-        public async Task<ActionResult<Products>> PostProducts(Products products)
+        public async Task<ActionResult<Product>> PostProducts(Product product)
         {
-          if (_context.Products == null)
-          {
-              return Problem("Entity set 'ProductsContext.Products'  is null.");
-          }
-            _context.Products.Add(products);
+            _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProducts), new { id = products.Id }, products);
+            return CreatedAtAction(nameof(GetProducts), new { id = product.Id }, product);
         }*/
 
         // DELETE: api/Products/5
-        /*[HttpDelete("{id}")]
+        /*[HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteProducts(int id)
         {
-            if (_context.Products == null)
-            {
-                return NotFound();
-            }
-            var products = await _context.Products.FindAsync(id);
-            if (products == null)
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
             {
                 return NotFound();
             }
 
-            _context.Products.Remove(products);
+            _context.Products.Remove(product);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -105,7 +95,7 @@ namespace AutoShop_API.Controllers
 
         /*private bool ProductsExists(int id)
         {
-            return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _context.Products.Any(e => e.Id == id);
         }*/
     }
 }
