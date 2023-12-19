@@ -91,8 +91,8 @@ public class CredentialsController : ControllerBase
         return NoContent();
     }*/
 
-    private bool CredentialsExists(int id)
+    /*private bool CredentialsExists(int id)
     {
         return _context.Credentials.Any(e => e.Id == id);
-    }
+    }*/
 }
