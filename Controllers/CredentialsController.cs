@@ -27,7 +27,8 @@ public class CredentialsController : ControllerBase
     [HttpGet("{username}")]
     public async Task<ActionResult<Credential>> GetCredentials(string username)
     {
-        var credentials = await _context.Credentials.FindAsync(_context.Credentials.FirstAsync(c => c.username == username).Id);
+        var user = await _context.Credentials.FirstAsync(c => c.username == username);
+        var credentials = await _context.Credentials.FindAsync(user.Id);
 
         return credentials == null ? NotFound() : credentials;
     }
