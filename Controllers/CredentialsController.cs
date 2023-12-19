@@ -23,10 +23,10 @@ public class CredentialsController : ControllerBase
     }*/
 
     // GET: api/Credential/5
-    [HttpGet("{id:int}")]
-    public async Task<ActionResult<Credential>> GetCredentials(int id)
+    [HttpGet("{username:string}")]
+    public async Task<ActionResult<Credential>> GetCredentials(string username)
     {
-        var credentials = await _context.Credentials.FindAsync(id);
+        var credentials = await _context.Credentials.FindAsync(username);
 
         return credentials == null ? NotFound() : credentials;
     }
