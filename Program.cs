@@ -1,11 +1,11 @@
 ﻿using AutoShop_API.Data;
 
-namespace AutoShop_API
+namespace AutoShop_API;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
             var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
@@ -30,13 +30,11 @@ namespace AutoShop_API
             host.Run();
         }
 
-        private static IHostBuilder CreateHostBuilder(string[] args)
-        {
+    private static IHostBuilder CreateHostBuilder(string[] args)
+    {
             return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
             });
         }
-    }
 }
-
