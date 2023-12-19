@@ -34,7 +34,7 @@ public class CredentialsController : ControllerBase
 
             return credentials == null ? NotFound() : credentials;
         }
-        catch (System.InvalidOperationException)
+        catch (InvalidOperationException)
         {
             return NotFound();
         }
