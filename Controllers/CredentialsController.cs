@@ -27,10 +27,17 @@ public class CredentialsController : ControllerBase
     [HttpGet("{username}")]
     public async Task<ActionResult<Credential>> GetCredentials(string username)
     {
-        var user = await _context.Credentials.FirstAsync(c => c.username == username);
-        var credentials = await _context.Credentials.FindAsync(user.Id);
+        try
+        {
+            var user = await _context.Credentials.FirstAsync(c => c.username == username);
+            var credentials = await _context.Credentials.FindAsync(user.Id);
 
-        return credentials == null ? NotFound() : credentials;
+            return credentials == null ? NotFound() : credentials;
+        }
+        catch (System.InvalidOperationException)
+        {
+            return NotFound();
+        }
     }
 
     // PUT: api/Credential/5
