@@ -23,7 +23,7 @@ public class CredentialsController : ControllerBase
     }*/
 
     // GET: api/Credential/5
-    [HttpGet("{username:string}")]
+    [HttpGet("/{username}")]
     public async Task<ActionResult<Credential>> GetCredentials(string username)
     {
         var credentials = await _context.Credentials.FindAsync(username);
