@@ -1,6 +1,7 @@
 ﻿using AutoShop_API.Data;
 using AutoShop_API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoShop_API.Controllers;
 
@@ -23,10 +24,10 @@ public class CredentialsController : ControllerBase
     }*/
 
     // GET: api/Credential/5
-    [HttpGet("/{username}")]
+    [HttpGet("{username}")]
     public async Task<ActionResult<Credential>> GetCredentials(string username)
     {
-        var credentials = await _context.Credentials.FindAsync(username);
+        var credentials = await _context.Credentials.FindAsync(_context.Credentials.FirstAsync(c => c.username == username).Id);
 
         return credentials == null ? NotFound() : credentials;
     }
