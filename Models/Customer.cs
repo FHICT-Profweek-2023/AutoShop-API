@@ -15,6 +15,8 @@ public class Customer
     public string birthday { get; init; }
 
     public DateTime? register_Date { get; init; }
+    
+    public string country { get; init; }
         
     public string adress { get; init; }
         
