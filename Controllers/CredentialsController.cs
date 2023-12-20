@@ -23,20 +23,32 @@ public class CredentialsController : ControllerBase
         return await _context.Credential.ToListAsync();
     }*/
 
-    // GET: api/Credential/5
+    // GET: api/Credential/username&password
     [HttpGet("{username}&{password}")]
-    public async Task<ActionResult<Credential>> GetCredentials(string username, string password)
+    public async Task<Dictionary<(string, string), (bool, Credential)>> GetCredentials(string username, string password)
     {
         try
         {
             var user = await _context.Credentials.FirstAsync(c => c.Email == username && c.Password == password);
             var credentials = await _context.Credentials.FindAsync(user.Id);
 
-            return credentials == null ? NotFound() : credentials;
+            return credentials == null ? throw new InvalidOperationException("Not found") : new Dictionary<(string, string), (bool, Credential)>
+            {
+                {
+                    ("success", "credentials"),
+                    (true, credentials)
+                }
+            };
         }
         catch (InvalidOperationException)
         {
-            return NotFound();
+            return new Dictionary<(string, string), (bool, Credential)>
+            {
+                {
+                    ("success", "credentials"),
+                    (false, null)!
+                }
+            };
         }
     }
 
