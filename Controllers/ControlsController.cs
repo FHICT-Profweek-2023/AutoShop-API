@@ -40,14 +40,14 @@ public class ControlsController : ControllerBase
     // PUT: api/Controls/5
     // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> PutControls(int id, Control credentialses)
+    public async Task<IActionResult> PutControls(int id, Control control)
     {
-        if (id != credentialses.Id)
+        if (id != control.Id)
         {
             return BadRequest();
         }
 
-        _context.Entry(credentialses).State = EntityState.Modified;
+        _context.Entry(control).State = EntityState.Modified;
 
         try
         {
@@ -69,12 +69,12 @@ public class ControlsController : ControllerBase
     // POST: api/Controls
     // To protect from over-posting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Control>> PostControls(Control credentialses)
+    public async Task<ActionResult<Control>> PostControls(Control control)
     {
-        _context.Controls.Add(credentialses);
+        _context.Controls.Add(control);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetControls), new { id = credentialses.Id }, credentialses);
+        return CreatedAtAction(nameof(GetControls), new { id = control.Id }, control);
     }
 
     // DELETE: api/Controls/5
