@@ -10,5 +10,5 @@ public class CredentialContext : DbContext
     {
     }
 
-    public DbSet<Credential> Credentials { get; set; } = null!;
+    public DbSet<Credential> Credentials { get; init; } = null!;
 }

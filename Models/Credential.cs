@@ -2,7 +2,7 @@
 
 public class Credential
 {
-    public int Id { get; set; }
-    public string username { get; set; }
-    public string password { get; set; }
+    public int Id { get; init; }
+    public string username { get; init; }
+    public string password { get; init; }
 }

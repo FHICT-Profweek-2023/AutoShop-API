@@ -10,5 +10,5 @@ public class ControlContext : DbContext
     {
     }
 
-    public DbSet<Control> Controls { get; set; } = null!;
+    public DbSet<Control> Controls { get; init; } = null!;
 }
