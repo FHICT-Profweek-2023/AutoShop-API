@@ -48,3 +48,14 @@ The following APIs are available:
         int current_position
   
       }
+
+* Credentials, at: ``http://your-ip/api/credentials/{username}&{password}``
+
+      {
+        int id,
+  
+        string username,
+  
+        string password
+  
+      }
