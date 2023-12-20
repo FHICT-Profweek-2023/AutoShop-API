@@ -29,7 +29,7 @@ public class CredentialsController : ControllerBase
     {
         try
         {
-            var user = await _context.Credentials.FirstAsync(c => c.username == username && c.password == password);
+            var user = await _context.Credentials.FirstAsync(c => c.Email == username && c.Password == password);
             var credentials = await _context.Credentials.FindAsync(user.Id);
 
             return credentials == null ? NotFound() : credentials;
