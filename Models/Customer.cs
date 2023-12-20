@@ -6,7 +6,7 @@ public class Customer
         
     public string? first_Name { get; init; }
 
-    public string? last_Name { get; init;}
+    public string? last_Name { get; init; }
 
     public string? email { get; init; }
 
