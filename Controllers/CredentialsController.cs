@@ -34,7 +34,7 @@ public class CredentialsController : ControllerBase
 
             return credentials == null ? throw new InvalidOperationException("Not found") : new CredentialRoot(true, credentials);
         }
-        catch (InvalidOperationException)
+        catch (Exception)
         {
             return new CredentialRoot(false, null);
         }
