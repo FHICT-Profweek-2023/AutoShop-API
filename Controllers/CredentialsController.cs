@@ -29,12 +29,14 @@ public class CredentialsController : ControllerBase
     {
         try
         {
+            if (username is null || password is null) throw new InvalidOperationException("Username or password is null")
+        
             var user = await _context.Credentials.FirstAsync(c => c.Email == username && c.Password == password);
             var credentials = await _context.Credentials.FindAsync(user.Id);
 
             return credentials == null ? throw new InvalidOperationException("Not found") : new CredentialRoot(true, credentials);
         }
-        catch (Exception)
+        catch (InvalidOperationException)
         {
             return new CredentialRoot(false, null);
         }
