@@ -25,10 +25,7 @@ public class CredentialsController : ControllerBase
 
     // GET: api/Credential/username&password
     [HttpGet("{username}&{password}")]
-    [HttpGet("{username}&")]
-    [HttpGet("&{password}")]
-    [HttpGet("&")]
-    [HttpGet("")]
+    [HttpGet]
     public async Task<CredentialRoot> GetCredentials(string? username, string? password)
     {
         try
