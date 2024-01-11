@@ -32,9 +32,12 @@ public class Program
 
     private static IHostBuilder CreateHostBuilder(string[] args)
     {
-            return Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
-        }
+        return Host.CreateDefaultBuilder(args).ConfigureLogging(logger =>
+        {
+            logger.ClearProviders().AddConsole(conf => conf.TimestampFormat = "[dd/MM/yy HH:mm:ss] ");
+        }).ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
+    }
 }
