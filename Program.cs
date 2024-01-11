@@ -34,7 +34,10 @@ public class Program
     {
         return Host.CreateDefaultBuilder(args).ConfigureLogging(logger =>
         {
-            logger.ClearProviders().AddConsole(conf => conf.TimestampFormat = "[dd/MM/yy HH:mm:ss] ");
+            logger.ClearProviders().AddSimpleConsole(conf =>
+            {
+                conf.TimestampFormat = "[dd/MM/yyyy HH:mm:ss] ";
+            });
         }).ConfigureWebHostDefaults(webBuilder =>
         {
             webBuilder.UseStartup<Startup>();
