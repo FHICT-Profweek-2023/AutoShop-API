@@ -5,9 +5,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 as BUILD
 WORKDIR /source
 COPY . .
 
-RUN dotnet restore "./AutoShop-API/AutoShop-API.csproj" --disable-parallel
+RUN dotnet restore "./AutoShop-API.csproj" --disable-parallel
 
-RUN dotnet publish "./AutoShop-API/AutoShop-API.csproj" -c release -o /app --no-restore
+RUN dotnet publish "./AutoShop-API.csproj" -c release -o /app --no-restore
 
 # Serve
 
